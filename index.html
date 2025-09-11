@@ -1,6 +1,299 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #32a9cd;
+      font-family: "ヒラギノ角ゴシック", serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ヘッダー */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #32a9cd;
+      color: #fff;
+    }
+    .title-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      border: none;
+    }
+    .subtitle {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 1em;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* 検索 */
+    .search {
+      display: flex;
+      align-items: center;
+    }
+    .search input {
+      padding: 4px;
+      border: 2px solid #003366;
+      border-radius: 4px;
+      width: 150px;
+      background-color: #fff;
+      color: #003366;
+    }
+    .search input::placeholder {
+      color: #003366aa;
+    }
+    .search button {
+      padding: 4px 6px;
+      margin-left: 4px;
+      border-radius: 4px;
+      border: none;
+      background-color: #003366;
+      color: #fff;
+      cursor: pointer;
+    }
+    .search button:hover {
+      background-color: #001f33;
+    }
+
+    /* ナビゲーション */
+    nav {
+      text-align: center;
+      padding: 1em 0;
+      background-color: #f0f0f0;
+    }
+    nav a {
+      color: #003366;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #32a9cd;
+    }
+    nav a.active {
+      color: #32a9cd;
+      border-bottom: 2px solid #32a9cd;
+    }
+
+    /* コンテンツ */
+    .content {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 2em;
+    }
+
+    /* ページタイトル */
+    .page-title {
+      text-align: center;
+      margin: 2em 0 3em 0;
+      padding: 1em;
+      background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
+      border-radius: 8px;
+      border: 2px solid #32a9cd;
+    }
+    .page-title h1 {
+      color: #003366;
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 0.1em;
+    }
+    .page-title p {
+      color: #32a9cd;
+      font-size: 1.2em;
+      margin: 0.5em 0 0 0;
+    }
+
+    /* フォーム */
+    .form-container {
+      background-color: #fafafa;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 2em;
+    }
+
+    .form-group label {
+      display: block;
+      color: #003366;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      font-size: 1.1em;
+    }
+
+    .required {
+      color: #e74c3c;
+      font-size: 0.9em;
+      margin-left: 0.5em;
+    }
+
+    /* ラジオボタンとチェックボックス */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+      margin-top: 1em;
+    }
+
+    .radio-item,
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8em;
+      background-color: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .radio-item:hover,
+    .checkbox-item:hover {
+      border-color: #32a9cd;
+      background-color: #f8fbfc;
+    }
+
+    .radio-item input[type="radio"],
+    .checkbox-item input[type="checkbox"] {
+      margin-right: 1em;
+      transform: scale(1.2);
+    }
+
+    .radio-item.selected,
+    .checkbox-item.selected {
+      border-color: #32a9cd;
+      background-color: #f0f8ff;
+    }
+
+    /* セレクトボックス */
+    select {
+      width: 100%;
+      padding: 1em;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #003366;
+      font-size: 1em;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border-color: #32a9cd;
+      outline: none;
+    }
+
+    /* テキスト入力 */
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 1em;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #003366;
+      font-size: 1em;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      border-color: #32a9cd;
+      outline: none;
+    }
+
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* 条件表示エリア */
+    .conditional-section {
+      display: none;
+      margin-top: 1em;
+      padding: 1em;
+      background-color: #f0f8ff;
+      border: 2px solid #32a9cd;
+      border-radius: 8px;
+    }
+
+    .conditional-section.show {
+      display: block;
+    }
+
+    /* 送信ボタン */
+    .submit-container {
+      text-align: center;
+      margin-top: 3em;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
+      color: white;
+      border: none;
+      padding: 1em 3em;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(50, 169, 205, 0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(50, 169, 205, 0.4);
+    }
+
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* フッター */
+    footer {
+      background-color: #32a9cd;
+      color: #ffffff;
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .content {
+        padding: 0 1em;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      .form-container {
+        padding: 1.5em;
+      }
+    }
+  </style>
   <meta charset="UTF-8">
   <title>お問い合わせ | 狭間書房</title>
   <style>
