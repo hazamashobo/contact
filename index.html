@@ -303,9 +303,11 @@
       <h1>狭間書房</h1>
       <p class="subtitle">Hazama Publishing</p>
     </div>
-    <div class="search">
-      <input type="text" id="searchInput" placeholder="キーワード入力">
-      <button onclick="searchSite()">検索</button>
+   <div class="search">
+      <form action="https://hazamashobo.github.io/result/" method="get">
+        <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
+        <button type="submit">検索</button>
+      </form>
     </div>
   </header>
 
@@ -395,7 +397,7 @@
           </div>
 
           <div class="form-group">
-            <label for="page_number">ページ番号</label>
+            <label for="page_number">登録番号</label>
             <input type="number" name="page_number" id="page_number" placeholder="該当するページ番号を入力（半角数字のみ）" min="1">
           </div>
         </div>
@@ -419,18 +421,6 @@
   </footer>
 
   <script>
-    // 検索機能
-    const hiddenKeywords = [
-      {keyword: "社員名簿", url: "https://hazamashobo.github.io/meibo/"},
-      {keyword: "テスト", url: "https://www.youtube.com/watch?v=W3oN4-NVvhc"}
-    ];
-    function searchSite() {
-      const input = document.getElementById('searchInput').value.trim();
-      if(!input) return;
-      const found = hiddenKeywords.find(k=>k.keyword===input);
-      if(found) location.href = found.url;
-    }
-
     // ラジオボタン選択処理
     function selectRadio(name, value) {
       document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
@@ -471,8 +461,8 @@
       if (inquiryType === 'book_issue' &&
           bookTitle === 'Gateway of liminal' &&
           issueType === 'binding' &&
-          pageNumber === '13') {
-        window.location.href = 'https://acrobat.adobe.com/id/urn:aaid:sc:AP:fc30a9d0-6e0e-4694-9855-0d7bfe828433'; // 特定のページ
+          pageNumber === '67') {
+        window.location.href = 'gazou/67.ipg'; // 特定のページ
       } else {
         showThankYouPage();
       }
