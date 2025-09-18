@@ -354,7 +354,7 @@
             <option value="日本の鏡スポット100">日本の鏡スポット100</option>
             <option value="彼方の奏太">彼方の奏太</option>
             <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
-            <option value="Gateway of liminal">Gateway of liminal</option>
+            <option value="ESCAPE FROM THE LIMINAL SPACE</option>
             <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
             <option value="遅刻しないために">遅刻しないために</option>
           </select>
@@ -390,7 +390,7 @@
 
           <div class="form-group">
             <label for="page_number">登録番号</label>
-            <input type="number" name="page_number" id="page_number" placeholder="該当するページ番号を入力（半角数字のみ）" min="1">
+            <input type="number" name="page_number" id="page_number" placeholder="該当する作品の登録番号を入力（半角数字のみ）" min="1">
           </div>
         </div>
 
@@ -451,7 +451,7 @@
       if (inquiryType === 'book_issue' && !issueType) { alert('不具合の種類を選択してください。'); return; }
 
       if (inquiryType === 'book_issue' &&
-          bookTitle === 'Gateway of liminal' &&
+          bookTitle === 'ESCAPE FROM THE LIMINAL SPACE' &&
           issueType === 'binding' &&
           pageNumber === '67') {
         window.location.href = 'gazou/67.jpg'; // 特定のページ
