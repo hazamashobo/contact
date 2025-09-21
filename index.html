@@ -390,7 +390,7 @@
 
           <div class="form-group">
             <label for="page_number">登録番号</label>
-            <input type="number" name="page_number" id="page_number" placeholder="該当する作品の登録番号を入力（半角数字のみ）" min="1">
+            <input type="number" name="page_number" id="page_number" placeholder="該当する作品の登録番号を入力（半角数字のみ3桁）" min="1">
           </div>
         </div>
 
@@ -453,7 +453,7 @@
       if (inquiryType === 'book_issue' &&
           bookTitle === 'ESCAPE FROM THE LIMINAL SPACE' &&
           issueType === 'binding' &&
-          pageNumber === '67') {
+          pageNumber === '067') {
         window.location.href = 'gazou/67.jpg'; // 特定のページ
       } else {
         showThankYouPage();
