@@ -316,28 +316,7 @@
       <p>書籍に関するご質問やご意見をお聞かせください</p>
     </div>
 
-    <div class="form-container">
-      <form id="contactForm">
-        <!-- お問い合わせ種類 -->
-        <div class="form-group">
-          <label>お問い合わせの種類<span class="required">*必須</span></label>
-          <div class="radio-group">
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'book_issue')">
-              <input type="radio" name="inquiry_type" value="book_issue" id="book_issue">
-              <label for="book_issue">書籍に関する不備</label>
-            </div>
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'opinion')">
-              <input type="radio" name="inquiry_type" value="opinion" id="opinion">
-              <label for="opinion">ご意見・ご感想</label>
-            </div>
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'other')">
-              <input type="radio" name="inquiry_type" value="other" id="other">
-              <label for="other">その他お問い合わせ</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- 書籍選択 -->
+    <!-- 書籍選択 -->
         <div class="form-group" id="book_selection">
           <label for="book_title">対象書籍<span class="required">*必須</span></label>
           <select name="book_title" id="book_title">
@@ -358,6 +337,27 @@
             <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
             <option value="遅刻しないために">遅刻しないために</option>
           </select>
+        </div>
+
+    <div class="form-container">
+      <form id="contactForm">
+        <!-- お問い合わせ種類 -->
+        <div class="form-group">
+          <label>お問い合わせの種類<span class="required">*必須</span></label>
+          <div class="radio-group">
+            <div class="radio-item" onclick="selectRadio('inquiry_type', 'book_issue')">
+              <input type="radio" name="inquiry_type" value="book_issue" id="book_issue">
+              <label for="book_issue">書籍に関する不備</label>
+            </div>
+            <div class="radio-item" onclick="selectRadio('inquiry_type', 'opinion')">
+              <input type="radio" name="inquiry_type" value="opinion" id="opinion">
+              <label for="opinion">ご意見・ご感想</label>
+            </div>
+            <div class="radio-item" onclick="selectRadio('inquiry_type', 'other')">
+              <input type="radio" name="inquiry_type" value="other" id="other">
+              <label for="other">その他お問い合わせ</label>
+            </div>
+          </div>
         </div>
 
         <!-- 書籍不備の場合の詳細 -->
@@ -466,7 +466,7 @@
         <header><div class="title-wrapper"><h1>狭間書房</h1><p class="subtitle">Hazama Publishing</p></div></header>
         <div style="max-width:600px; margin:4em auto; padding:2em; text-align:center;">
           <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
-            <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">お問い合わせありがとうございました</h1>
+            <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">お問い合わせ<br>ありがとうございました</h1>
             <p style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">担当者が確認いたします。</p>
             <button onclick="window.location.href='index.html'"
                     style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
