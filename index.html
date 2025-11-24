@@ -196,9 +196,9 @@
     }
 
     /* テキスト入力 */
-    input[type="text"],
-    input[type="number"],
-    textarea {
+    .form-container input[type="text"],
+    .form-container input[type="number"],
+    .form-container textarea {
       width: 100%;
       padding: 1em;
       border: 2px solid #e0e0e0;
@@ -210,9 +210,9 @@
       box-sizing: border-box;
     }
 
-    input[type="text"]:focus,
-    input[type="number"]:focus,
-    textarea:focus {
+    .form-container input[type="text"]:focus,
+    .form-container input[type="number"]:focus,
+    .form-container textarea:focus {
       border-color: #32a9cd;
       outline: none;
     }
@@ -298,7 +298,7 @@
     </div>
    <div class="search">
       <form action="https://hazamashobo.github.io/result/" method="get">
-        <input type="text" id="searchInput" name="q" placeholder="キーワード入力(なんか太い)">
+        <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
         <button type="submit">検索</button>
       </form>
     </div>
@@ -511,3 +511,4 @@
   </script>
 </body>
 </html>
+
