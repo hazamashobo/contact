@@ -26,12 +26,25 @@
       display: flex;
       flex-direction: column;
     }
+   .title-wrapper a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.title-wrapper a:hover h1 {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
     header h1 {
       margin: 0;
       font-size: 3em;
       letter-spacing: 0.1em;
       line-height: 1;
       border: none;
+      font-family: 'Tsunagi Gothic Black', sans-serif;
+      font-weight: 700;
     }
     .subtitle {
       margin: 0;
@@ -293,9 +306,11 @@
 <body>
   <header>
     <div class="title-wrapper">
-      <h1>狭間書房</h1>
-      <p class="subtitle">Hazama Publishing</p>
-    </div>
+  <a href="https://hazamashobo.github.io/main/index.html">
+    <h1>狭間書房</h1>
+    <p class="subtitle">Hazama Publishing</p>
+  </a>
+</div>
    <div class="search">
       <form action="https://hazamashobo.github.io/result/" method="get">
         <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
