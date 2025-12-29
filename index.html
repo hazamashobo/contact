@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 狭間書房</title>
  <style>
+  /* 基本設定：index(34)に準拠 */
   html, body {
     height: 100%;
     margin: 0;
@@ -20,7 +21,7 @@
     flex-direction: column;
   }
 
-  /* ヘッダー共通設定 */
+  /* ヘッダー：index(34)のデザインを再現 */
   header {
     display: flex;
     justify-content: space-between;
@@ -29,8 +30,6 @@
     background-color: #32a9cd;
     color: #fff;
     flex-shrink: 0;
-    flex-wrap: wrap;
-    gap: 10px;
   }
 
   .title-wrapper a {
@@ -54,26 +53,49 @@
     margin: 0;
     font-size: 1em;
     text-align: center;
+    line-height: 1;
   }
 
-  /* 検索 */
-  .search form { display: flex; align-items: center; }
-  .search input { padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; }
+  /* 検索：index(34)のデザイン */
+  .search form {
+    display: flex;
+    align-items: center;
+  }
+  .search input {
+    padding: 4px;
+    border: 2px solid #003366;
+    border-radius: 4px;
+    width: 150px;
+  }
+  .search button {
+    padding: 4px 6px;
+    margin-left: 4px;
+    border-radius: 4px;
+    border: none;
+    background-color: #003366;
+    color: #fff;
+    cursor: pointer;
+  }
 
-  /* ナビゲーション */
+  /* ナビゲーション：index(34)の横並びデザインを完全再現 */
   nav {
     text-align: center;
     padding: 1em 0;
     background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-shrink: 0;
   }
-  nav a { color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold; }
-  nav a.active { color: #32a9cd; border-bottom: 2px solid #32a9cd; }
+  nav a {
+    color: #003366;
+    margin: 0 1em;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a.active {
+    color: #32a9cd;
+    border-bottom: 2px solid #32a9cd;
+  }
 
-  /* メインエリア */
+  /* メインコンテンツ */
   .content {
     max-width: 1000px;
     margin: 2em auto;
@@ -83,55 +105,87 @@
     box-sizing: border-box;
   }
 
-  /* 完了画面用のクラス（JSで使用） */
-  .thanks-container {
-    background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
-    padding: 3em;
-    border-radius: 12px;
-    border: 2px solid #32a9cd;
+  /* ページタイトル */
+  .page-title {
     text-align: center;
+    margin: 2em 0;
+    padding: 1em;
+    background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
+    border-radius: 8px;
+    border: 2px solid #32a9cd;
+  }
+  .page-title h1 { color: #003366; font-size: 2.5em; margin: 0; }
+
+  /* フォーム要素 */
+  .form-container {
+    background-color: #fafafa;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+  }
+  .form-group { margin-bottom: 2em; }
+  select, input[type="text"], input[type="number"], textarea {
     width: 100%;
-    max-width: 600px;
+    padding: 1em;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     box-sizing: border-box;
   }
 
-  .thanks-title {
-    color: #003366;
-    font-size: 2.5em; /* PCサイズ */
-    margin-bottom: 1em;
-    line-height: 1.3;
-  }
-
-  /* ★レスポンシブ：PCの見た目を維持しつつスマホで縮小 */
-  @media (max-width: 768px) {
-    header { padding: 1em; justify-content: center; }
-    header h1 { font-size: 1.8em; } /* ヘッダー縮小 */
-    .search { width: 100%; justify-content: center; }
-    
-    .page-title h1 { font-size: 1.8em; }
-    .form-container { padding: 1.2em; }
-    
-    /* 完了画面のレスポンシブ */
-    .thanks-container { padding: 2em 1.5em; }
-    .thanks-title { font-size: 1.6em; } /* 送信完了文字を縮小 */
-    .thanks-text { font-size: 1em !important; }
-  }
-
-  /* フォーム装飾 */
-  .form-container { background-color: #fafafa; padding: 2em; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); box-sizing: border-box; }
-  .form-group { margin-bottom: 2em; }
-  select, input[type="text"], input[type="number"], textarea { width: 100%; padding: 1em; border: 2px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; }
+  /* ラジオボタン */
   .radio-group { display: flex; flex-direction: column; gap: 0.8em; }
   .radio-item { display: flex; align-items: center; padding: 0.8em; background-color: #fff; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; }
   .radio-item.selected { border-color: #32a9cd; background-color: #f0f8ff; }
   .conditional-section { display: none; margin-top: 1em; padding: 1.5em; background-color: #f0f8ff; border: 2px solid #32a9cd; border-radius: 8px; }
   .conditional-section.show { display: block; }
-  .submit-btn { background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color: white; border: none; padding: 1em 3em; font-size: 1.2em; font-weight: bold; border-radius: 25px; cursor: pointer; width: auto; }
-  footer { background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; margin-top: auto; }
+
+  /* 送信ボタン */
+  .submit-btn {
+    background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
+    color: white; border: none; padding: 1em 3em; font-size: 1.2em; font-weight: bold; border-radius: 25px; cursor: pointer;
+  }
+
+  footer {
+    background-color: #32a9cd;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+    margin-top: auto;
+  }
+
+  /* 完了画面用クラス */
+  .thanks-container {
+    background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
+    padding: 3em; border-radius: 12px; border: 2px solid #32a9cd; text-align: center; width: 100%; max-width: 600px; box-sizing: border-box;
+  }
+
+  /* ★レスポンシブ：スマホ時のみ適用 */
+  @media (max-width: 768px) {
+    header {
+      padding: 1em;
+      flex-direction: column; /* スマホでは縦並びに */
+      gap: 15px;
+    }
+    header h1 { font-size: 2em; } /* ロゴをスマホサイズに */
+    .search input { width: 200px; }
+    
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5em;
+    }
+    nav a { margin: 0.3em 0.5em; font-size: 0.9em; }
+
+    .page-title h1 { font-size: 1.8em; }
+    .thanks-container { padding: 2em 1em; }
+    .thanks-container h1 { font-size: 1.6em; }
+  }
  </style>
 </head>
 <body>
-  <header id="site-header">
+  <header>
     <div class="title-wrapper">
       <a href="https://hazamashobo.github.io/main/index.html">
         <h1>狭間書房</h1>
@@ -146,7 +200,7 @@
     </div>
   </header>
 
-  <nav id="site-nav">
+  <nav>
     <a href="https://hazamashobo.github.io/main/index.html">ホーム</a>
     <a href="https://hazamashobo.github.io/company/index.html">狭間書房について</a>
     <a href="https://hazamashobo.github.io/books/index.html">刊行物</a>
@@ -274,16 +328,14 @@
       }
     });
 
-    // 遷移後の画面も自動レスポンシブにするための修正
     function showPDFConfirmPage() {
       const mainContent = document.getElementById('main-content');
       document.getElementById('footer-text').innerText = '© 2025 狭間書房　（5/33）';
-      
       mainContent.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh;">
           <div class="thanks-container">
-            <h1 class="thanks-title">落丁部分のPDFを<br>送信しました</h1>
-            <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312'"
+            <h1 style="color:#003366; line-height:1.3; margin-bottom:1em;">落丁部分のPDFを<br>送信しました</h1>
+            <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312'\"
                     class="submit-btn" style="width:100%;">PDFを確認する</button>
           </div>
         </div>`;
@@ -293,13 +345,12 @@
     function showThankYouPage() {
       const mainContent = document.getElementById('main-content');
       document.getElementById('footer-text').innerText = '© 2025 狭間書房　（-/33）';
-
       mainContent.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh;">
           <div class="thanks-container">
-            <h1 class="thanks-title">お問い合わせ<br>ありがとうございました</h1>
-            <p class="thanks-text" style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">担当者が確認いたします。</p>
-            <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
+            <h1 style="color:#003366; line-height:1.3; margin-bottom:1em;">お問い合わせ<br>ありがとうございました</h1>
+            <p style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">担当者が確認いたします。</p>
+            <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'\"
                     class="submit-btn" style="width:100%;">ホームに戻る</button>
           </div>
         </div>`;
