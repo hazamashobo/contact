@@ -492,7 +492,18 @@ body {
     // 落丁PDF確認画面
     function showPDFConfirmPage() {
       document.body.innerHTML = `
-        <header><div class="title-wrapper"><h1>狭間書房</h1><p class="subtitle">Hazama Publishing</p></div></header>
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff;">
+  <div class="title-wrapper" style="display: flex; flex-direction: column;">
+    <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
+    <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
+  </div>
+  <div class="search" style="display: flex; align-items: center;">
+    <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center;">
+      <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; background-color: #fff; color: #003366;">
+      <button type="submit" style="padding: 4px 6px; margin-left: 4px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer;">検索</button>
+    </form>
+  </div>
+</header>
         <div style="max-width:600px; margin:4em auto; padding:2em; text-align:center;">
           <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
             <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">落丁部分のPDFを<br>送信しました</h1>
@@ -511,15 +522,26 @@ body {
             </button>
           </div>
         </div>
-        <footer style="background:#32a9cd; color:#fff; text-align:center; padding:1em; margin-top:3em;">
-          <p>© 2025 狭間書房　（4/33）</p>
-        </footer>`;
+       <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto;">
+  <p>© 2025 狭間書房　（5/33）</p>
+</footer>;
     }
 
     // 通常完了ページ
     function showThankYouPage() {
       document.body.innerHTML = `
-        <header><div class="title-wrapper"><h1>狭間書房</h1><p class="subtitle">Hazama Publishing</p></div></header>
+       <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff;">
+  <div class="title-wrapper" style="display: flex; flex-direction: column;">
+    <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
+    <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
+  </div>
+  <div class="search" style="display: flex; align-items: center;">
+    <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center;">
+      <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; background-color: #fff; color: #003366;">
+      <button type="submit" style="padding: 4px 6px; margin-left: 4px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer;">検索</button>
+    </form>
+  </div>
+</header>
         <div style="max-width:600px; margin:4em auto; padding:2em; text-align:center;">
           <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
             <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">お問い合わせ<br>ありがとうございました</h1>
@@ -532,9 +554,9 @@ body {
             </button>
           </div>
         </div>
-        <footer style="background:#32a9cd; color:#fff; text-align:center; padding:1em; margin-top:3em;">
-          <p>© 2025 狭間書房　（5/33）</p>
-        </footer>`;
+       <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto;">
+       <p>© 2025 狭間書房　（6/33）</p>
+</footer>;
     }
   </script>
 </body>
