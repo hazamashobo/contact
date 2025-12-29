@@ -2,16 +2,23 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 狭間書房</title>
  <style>
-    body {
-      background-color: #ffffff;
-      color: #32a9cd;
-      font-family: "ヒラギノ角ゴシック", serif;
-      line-height: 1.8;
-      margin: 0;
-      padding: 0;
-    }
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  color: #32a9cd;
+  font-family: "ヒラギノ角ゴシック", serif;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ヘッダー */
     header {
@@ -21,6 +28,7 @@
       padding: 1em 2em;
       background-color: #32a9cd;
       color: #fff;
+      flex-shrink: 0;
     }
     .title-wrapper {
       display: flex;
@@ -87,6 +95,7 @@
       text-align: center;
       padding: 1em 0;
       background-color: #f0f0f0;
+      flex-shrink: 0;
     }
     nav a {
       color: #003366;
@@ -99,9 +108,11 @@
     }
 /* コンテンツ */
     .content {
-      max-width: 1000px;
-      margin: 2em auto;
-      padding: 0 1em;
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 1em;
+  flex: 1;
+  width: 100%;
     }
 
     /* ページタイトル */
@@ -287,6 +298,8 @@
       text-align: center;
       padding: 1em;
       margin-top: 3em;
+      flex-shrink: 0;
+ 　　 margin-top: auto;
     }
 
     /* レスポンシブ */
@@ -499,7 +512,7 @@
           </div>
         </div>
         <footer style="background:#32a9cd; color:#fff; text-align:center; padding:1em; margin-top:3em;">
-          <p>© 2025 狭間書房</p>
+          <p>© 2025 狭間書房　（4/33）</p>
         </footer>`;
     }
 
