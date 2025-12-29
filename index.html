@@ -20,7 +20,7 @@
     flex-direction: column;
   }
 
-  /* ヘッダー */
+  /* ヘッダー：PCでは元のまま、スマホでは折り返し許可 */
   header {
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     background-color: #32a9cd;
     color: #fff;
     flex-shrink: 0;
-    flex-wrap: wrap; /* スマホで折り返せるように */
+    flex-wrap: wrap; 
     gap: 10px;
   }
 
@@ -95,21 +95,20 @@
     margin: 0 1em;
     text-decoration: none;
     font-weight: bold;
-    white-space: nowrap;
   }
   nav a.active {
     color: #32a9cd;
     border-bottom: 2px solid #32a9cd;
   }
 
-  /* コンテンツ */
+  /* コンテンツ：幅の設定を整理 */
   .content {
     max-width: 1000px;
     margin: 2em auto;
     padding: 0 1em;
     flex: 1;
     width: 100%;
-    box-sizing: border-box; /* はみ出し防止 */
+    box-sizing: border-box;
   }
 
   .page-title {
@@ -127,12 +126,13 @@
     margin: 0;
   }
 
-  /* フォーム */
+  /* フォーム要素のはみ出し防止 */
   .form-container {
     background-color: #fafafa;
     padding: 2em;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
   }
 
   .form-group {
@@ -153,7 +153,7 @@
     margin-left: 0.5em;
   }
 
-  /* 入力要素の共通設定 */
+  /* 入力要素：box-sizingを追加して横幅100%を維持 */
   select, 
   .form-container input[type="text"], 
   .form-container input[type="number"], 
@@ -162,18 +162,12 @@
     padding: 1em;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    box-sizing: border-box; /* paddingを含めた100%幅 */
+    box-sizing: border-box; 
     font-family: inherit;
     font-size: 1em;
   }
 
-  /* ラジオボタン */
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-  }
-
+  .radio-group { display: flex; flex-direction: column; gap: 0.8em; }
   .radio-item {
     display: flex;
     align-items: center;
@@ -184,13 +178,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
+  .radio-item.selected { border-color: #32a9cd; background-color: #f0f8ff; }
+  .radio-item input[type="radio"] { margin-right: 1em; transform: scale(1.2); }
 
-  .radio-item.selected {
-    border-color: #32a9cd;
-    background-color: #f0f8ff;
-  }
-
-  /* 条件表示エリア */
   .conditional-section {
     display: none;
     margin-top: 1em;
@@ -201,7 +191,6 @@
   }
   .conditional-section.show { display: block; }
 
-  /* 送信ボタン */
   .submit-container { text-align: center; margin-top: 3em; }
   .submit-btn {
     background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
@@ -222,36 +211,14 @@
     margin-top: auto;
   }
 
-  /* ★レスポンシブ対応 (スマホ用) */
+  /* レスポンシブ設定：スマホの時だけ適用 */
   @media (max-width: 768px) {
-    header {
-      padding: 1em;
-      justify-content: center;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2em; /* スマホではロゴを小さく */
-    }
-    .search {
-      width: 100%;
-      justify-content: center;
-    }
-    .search input {
-      width: 200px;
-    }
-    .content {
-      margin: 1em auto;
-    }
-    .page-title h1 {
-      font-size: 1.8em;
-    }
-    .form-container {
-      padding: 1.2em;
-    }
-    nav a {
-      margin: 0 0.5em;
-      font-size: 0.9em;
-    }
+    header { padding: 1em; justify-content: center; }
+    header h1 { font-size: 2em; text-align: center; }
+    .search { width: 100%; justify-content: center; }
+    .page-title h1 { font-size: 1.8em; }
+    .form-container { padding: 1em; }
+    nav a { margin: 0 0.5em; font-size: 0.9em; }
   }
  </style>
 </head>
@@ -284,30 +251,30 @@
       <p>書籍に関するご質問やご意見をお聞かせください</p>
     </div>
 
+    <div class="form-group" id="book_selection" style="max-width: 1000px; margin: 0 auto 2em;">
+      <label for="book_title">対象書籍<span class="required">*必須</span></label>
+      <select name="book_title" id="book_title">
+        <option value="">書籍を選択してください</option>
+        <option value="美術の穴">美術の穴</option>
+        <option value="RPGさんぽ入門">RPGさんぽ入門</option>
+        <option value="コンクールとコンテスト">コンクールとコンテスト</option>
+        <option value="鳥の目 虫の目 魚の目">鳥の目 虫の目 魚の目</option>
+        <option value="光輪-Nimbus-">光輪-Nimbus-</option>
+        <option value="What is Brown noise?">What is Brown noise?</option>
+        <option value="ひのまる構図">ひのまる構図</option>
+        <option value="黒子を星座に">黒子を星座に</option>
+        <option value="RPGさんぽ概説">RPGさんぽ概説</option>
+        <option value="日本の顔スポット">日本の顔スポット</option>
+        <option value="千年幸福論">千年幸福論</option>
+        <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
+        <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
+        <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
+        <option value="配刻しないために">配刻しないために</option>
+      </select>
+    </div>
+
     <div class="form-container">
       <form id="contactForm">
-        <div class="form-group" id="book_selection">
-          <label for="book_title">対象書籍<span class="required">*必須</span></label>
-          <select name="book_title" id="book_title">
-            <option value="">書籍を選択してください</option>
-            <option value="美術の穴">美術の穴</option>
-            <option value="RPGさんぽ入門">RPGさんぽ入門</option>
-            <option value="コンクールとコンテスト">コンクールとコンテスト</option>
-            <option value="鳥の目 虫の目 魚の目">鳥の目 虫の目 魚の目</option>
-            <option value="光輪-Nimbus-">光輪-Nimbus-</option>
-            <option value="What is Brown noise?">What is Brown noise?</option>
-            <option value="ひのまる構図">ひのまる構図</option>
-            <option value="黒子を星座に">黒子を星座に</option>
-            <option value="RPGさんぽ概説">RPGさんぽ概説</option>
-            <option value="日本の顔スポット">日本の顔スポット</option>
-            <option value="千年幸福論">千年幸福論</option>
-            <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
-            <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
-            <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
-            <option value="配刻しないために">配刻しないために</option>
-          </select>
-        </div>
-
         <div class="form-group">
           <label>お問い合わせの種類<span class="required">*必須</span></label>
           <div class="radio-group">
@@ -375,6 +342,7 @@
   </footer>
 
   <script>
+    /* JavaScriptロジック（showPDFConfirmPage, showThankYouPage）は全て元のまま維持 */
     function selectRadio(name, value) {
       document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
         radio.closest('.radio-item').classList.remove('selected');
@@ -410,17 +378,59 @@
       if (!bookTitle) { alert('対象書籍を選択してください。'); return; }
       if (inquiryType === 'book_issue' && !issueType) { alert('不具合の種類を選択してください。'); return; }
 
-      // 特定条件でのPDF遷移
       if (inquiryType === 'book_issue' &&
           bookTitle === 'LIMINAL SPACE 100' &&
           issueType === 'binding' &&
           pageNumber === '148149') {
-        location.href = 'https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312';
+        showPDFConfirmPage();
       } else {
-        alert('送信が完了しました。ありがとうございました。');
-        location.reload();
+        showThankYouPage();
       }
     });
+
+    function showPDFConfirmPage() {
+      document.body.innerHTML = `
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column;">
+            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
+            <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
+          </div>
+        </header>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
+          <div style="max-width:600px; width:100%; text-align:center;">
+            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
+              <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">落丁部分のPDFを<br>送信しました</h1>
+              <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312'"
+                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 3em; font-size:1.2em; border-radius:25px; cursor:pointer; width:100%;">PDFを確認する</button>
+            </div>
+          </div>
+        </div>
+        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em;">
+          <p>© 2025 狭間書房　（5/33）</p>
+        </footer>`;
+    }
+
+    function showThankYouPage() {
+      document.body.innerHTML = `
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column;">
+            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
+            <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
+          </div>
+        </header>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
+          <div style="max-width:600px; width:100%; text-align:center;">
+            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
+              <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">お問い合わせ<br>ありがとうございました</h1>
+              <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
+                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 3em; font-size:1.2em; border-radius:25px; cursor:pointer; width:100%;">ホームに戻る</button>
+            </div>
+          </div>
+        </div>
+        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em;">
+          <p>© 2025 狭間書房　（-/33）</p>
+        </footer>`;
+    }
   </script>
 </body>
 </html>
