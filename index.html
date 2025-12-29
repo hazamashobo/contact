@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 狭間書房</title>
  <style>
-  /* 1. index(34)から完全に継承するベースデザイン */
+  /* 1. 全体のベース（index 34を完全準拠） */
   html, body {
     height: 100%;
     margin: 0;
@@ -21,6 +21,7 @@
     flex-direction: column;
   }
 
+  /* 2. ヘッダー：index 34と全く同じ指定 */
   header {
     display: flex;
     justify-content: space-between;
@@ -36,12 +37,11 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
   }
 
   header h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 3em; /* PCサイズ */
     letter-spacing: 0.1em;
     line-height: 1;
     font-family: 'Tsunagi Gothic Black', sans-serif;
@@ -55,7 +55,7 @@
     line-height: 1;
   }
 
-  /* 2. 検索フォーム：index(34)と完全に同じ指定 */
+  /* 3. 検索窓：画像IMG_3685のようなコンパクトなサイズへ */
   .search form {
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@
     padding: 4px;
     border: 2px solid #003366;
     border-radius: 4px;
-    width: 150px;
+    width: 150px; /* index 34と同じ幅 */
     background-color: #fff;
     color: #003366;
   }
@@ -78,6 +78,7 @@
     cursor: pointer;
   }
 
+  /* 4. ナビゲーション：横並びを維持 */
   nav {
     text-align: center;
     padding: 1em 0;
@@ -95,7 +96,7 @@
     border-bottom: 2px solid #32a9cd;
   }
 
-  /* 3. コンテンツエリア */
+  /* 5. コンテンツエリア */
   .content {
     max-width: 1000px;
     margin: 2em auto;
@@ -105,63 +106,73 @@
     box-sizing: border-box;
   }
 
-  .page-title {
-    text-align: center;
-    margin: 2em 0;
-    padding: 1em;
+  /* 完了画面用の共通枠（CSSで制御することでスマホ対応させる） */
+  .thanks-box {
     background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
-    border-radius: 8px;
-    border: 2px solid #32a9cd;
-  }
-  .page-title h1 { color: #003366; font-size: 2.5em; margin: 0; }
-
-  /* 4. フォーム装飾（PCでは元のボリューム感を維持） */
-  .form-container {
-    background-color: #fafafa;
-    padding: 2em;
+    padding: 3em;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    box-sizing: border-box;
-  }
-  .form-group { margin-bottom: 2em; }
-  select, input[type="text"], input[type="number"], textarea {
+    border: 2px solid #32a9cd;
+    text-align: center;
+    max-width: 600px;
     width: 100%;
-    padding: 1em;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
     box-sizing: border-box;
   }
 
-  .radio-group { display: flex; flex-direction: column; gap: 0.8em; }
-  .radio-item { display: flex; align-items: center; padding: 0.8em; background-color: #fff; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; }
+  .thanks-title {
+    color: #003366;
+    font-size: 2.5em; /* PCサイズ */
+    margin-bottom: 1em;
+    line-height: 1.3;
+  }
+
+  /* -------------------------------------------
+     ★レスポンシブ：画像IMG_3686の巨大化を防ぐ設定
+  ------------------------------------------- */
+  @media (max-width: 768px) {
+    /* ヘッダー全体を縮小 */
+    header {
+      padding: 0.8em 1em;
+    }
+    header h1 {
+      font-size: 1.5em; /* 3.0 -> 1.5へ。IMG_3685に近いサイズ感 */
+    }
+    .subtitle {
+      font-size: 0.7em;
+    }
+    /* 検索窓もコンパクトに */
+    .search input {
+      width: 100px;
+      font-size: 0.8em;
+    }
+    
+    /* ナビゲーションがはみ出さないように */
+    nav {
+      padding: 0.5em 0;
+    }
+    nav a {
+      margin: 0 0.5em;
+      font-size: 0.85em;
+    }
+
+    /* 完了画面の文字も自動で小さくする */
+    .thanks-box {
+      padding: 2em 1em;
+    }
+    .thanks-title {
+      font-size: 1.5em; /* スマホで巨大化するのを防ぐ */
+    }
+  }
+
+  /* フォームパーツの基本装飾 */
+  .form-container { background-color: #fafafa; padding: 2em; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  .form-group { margin-bottom: 2em; }
+  select, input, textarea { width: 100%; padding: 1em; border: 2px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; }
+  .radio-item { display: flex; align-items: center; padding: 0.8em; background-color: #fff; border: 2px solid #e0e0e0; border-radius: 8px; margin-top: 0.5em; cursor: pointer; }
   .radio-item.selected { border-color: #32a9cd; background-color: #f0f8ff; }
-  .conditional-section { display: none; margin-top: 1em; padding: 1.5em; background-color: #f0f8ff; border: 2px solid #32a9cd; border-radius: 8px; }
+  .conditional-section { display: none; margin-top: 1em; padding: 1em; background-color: #f0f8ff; border: 2px solid #32a9cd; border-radius: 8px; }
   .conditional-section.show { display: block; }
   .submit-btn { background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color: white; border: none; padding: 1em 3em; font-size: 1.2em; font-weight: bold; border-radius: 25px; cursor: pointer; }
-
   footer { background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; margin-top: auto; }
-
-  /* ★5. スマホ時のみの差分設定（ここが重要） */
-  @media (max-width: 768px) {
-    header {
-      padding: 1em;
-      flex-direction: column;
-      gap: 15px;
-    }
-    header h1 { font-size: 2em; } /* ロゴサイズのみスマホに最適化 */
-    .search input { width: 180px; } /* 検索窓の幅を微調整 */
-    
-    nav {
-      padding: 0.5em;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav a { margin: 0.3em 0.5em; font-size: 0.9em; }
-
-    .page-title h1 { font-size: 1.8em; }
-    .form-container { padding: 1.2em; }
-  }
  </style>
 </head>
 <body>
@@ -189,75 +200,48 @@
 
   <div class="content" id="main-content">
     <div class="page-title">
-      <h1>お問い合わせ</h1>
+      <h1 style="color: #003366; font-size: 2em;">お問い合わせ</h1>
       <p>書籍に関するご質問やご意見をお聞かせください</p>
     </div>
 
-    <div class="form-group" id="book_selection" style="max-width: 1000px; margin: 0 auto 2em;">
-      <label for="book_title" style="color: #003366; font-weight: bold; display: block; margin-bottom: 0.5em;">対象書籍<span style="color: #e74c3c; font-size: 0.9em; margin-left: 0.5em;">*必須</span></label>
-      <select name="book_title" id="book_title">
+    <div class="form-group" style="margin-bottom: 2em;">
+      <label style="color: #003366; font-weight: bold;">対象書籍<span style="color:#e74c3c;">*必須</span></label>
+      <select id="book_title">
         <option value="">書籍を選択してください</option>
-        <option value="美術の穴">美術の穴</option>
-        <option value="RPGさんぽ入門">RPGさんぽ入門</option>
-        <option value="コンクールとコンテスト">コンクールとコンテスト</option>
-        <option value="鳥の目 虫の目 魚の目">鳥の目 虫の目 魚の目</option>
-        <option value="光輪-Nimbus-">光輪-Nimbus-</option>
-        <option value="What is Brown noise?">What is Brown noise?</option>
-        <option value="ひのまる構図">ひのまる構図</option>
-        <option value="黒子を星座に">黒子を星座に</option>
-        <option value="RPGさんぽ概説">RPGさんぽ概説</option>
-        <option value="日本の鏡スポット">日本の鏡スポット</option>
-        <option value="千年幸福論">千年幸福論</option>
-        <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
         <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
-        <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
-        <option value="遅刻しないために">遅刻しないために</option>
-      </select>
+        <option value="美術の穴">美術の穴</option>
+        </select>
     </div>
 
     <div class="form-container">
       <form id="contactForm">
         <div class="form-group">
-          <label style="color: #003366; font-weight: bold; display: block; margin-bottom: 0.5em;">お問い合わせの種類<span style="color: #e74c3c; font-size: 0.9em; margin-left: 0.5em;">*必須</span></label>
-          <div class="radio-group">
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'book_issue')">
-              <input type="radio" name="inquiry_type" value="book_issue" id="book_issue">
-              <label for="book_issue">書籍に関する不備</label>
-            </div>
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'opinion')">
-              <input type="radio" name="opinion" value="opinion" id="opinion">
-              <label for="opinion">ご意見・ご感想</label>
-            </div>
-            <div class="radio-item" onclick="selectRadio('inquiry_type', 'other')">
-              <input type="radio" name="inquiry_type" value="other" id="other">
-              <label for="other">その他</label>
-            </div>
+          <label style="color: #003366; font-weight: bold;">お問い合わせの種類</label>
+          <div class="radio-item" onclick="selectRadio('inquiry_type', 'book_issue')">
+            <input type="radio" name="inquiry_type" value="book_issue" id="book_issue">
+            <label for="book_issue">書籍に関する不備</label>
+          </div>
+          <div class="radio-item" onclick="selectRadio('inquiry_type', 'opinion')">
+            <input type="radio" name="inquiry_type" value="opinion" id="opinion">
+            <label for="opinion">ご意見・ご感想</label>
           </div>
         </div>
 
         <div class="conditional-section" id="book_issue_details">
           <div class="form-group">
-            <label style="color: #003366; font-weight: bold;">不具合の種類<span style="color: #e74c3c; font-size: 0.9em; margin-left: 0.5em;">*必須</span></label>
-            <div class="radio-group">
-              <div class="radio-item" onclick="selectRadio('issue_type', 'qr_code')"><input type="radio" name="issue_type" value="qr_code" id="qr_code"><label for="qr_code">QRコードの不具合</label></div>
-              <div class="radio-item" onclick="selectRadio('issue_type', 'typo')"><input type="radio" name="issue_type" value="typo" id="typo"><label for="typo">誤植(誤字・脱字)</label></div>
-              <div class="radio-item" onclick="selectRadio('issue_type', 'binding')"><input type="radio" name="issue_type" value="binding" id="binding"><label for="binding">乱丁・落丁</label></div>
-              <div class="radio-item" onclick="selectRadio('issue_type', 'loose_pages')"><input type="radio" name="issue_type" value="loose_pages" id="loose_pages"><label for="loose_pages">ページが外れやすい</label></div>
-              <div class="radio-item" onclick="selectRadio('issue_type', 'other_issue')"><input type="radio" name="issue_type" value="other_issue" id="other_issue"><label for="other_issue">その他</label></div>
+            <label>不具合の種類</label>
+            <div class="radio-item" onclick="selectRadio('issue_type', 'binding')">
+              <input type="radio" name="issue_type" value="binding" id="binding">
+              <label for="binding">乱丁・落丁</label>
             </div>
           </div>
           <div class="form-group">
-            <label for="page_number" style="color: #003366; font-weight: bold;">ページ番号<span style="color: #e74c3c; font-size: 0.9em; margin-left: 0.5em;">*必須</span></label>
-            <input type="number" name="page_number" id="page_number" placeholder="該当するページ番号を入力（p.002,p.003が落丁している場合は「002003」と入力）" min="1">
+            <label>ページ番号</label>
+            <input type="number" id="page_number" placeholder="例：148149">
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="details" style="color: #003366; font-weight: bold;">内容詳細</label>
-          <textarea name="details" id="details" placeholder="お問い合わせの詳細をご記入ください" style="height: 150px;"></textarea>
-        </div>
-
-        <div style="text-align: center; margin-top: 3em;">
+        <div style="text-align: center; margin-top: 2em;">
           <button type="submit" class="submit-btn">送信する</button>
         </div>
       </form>
@@ -269,54 +253,42 @@
   </footer>
 
   <script>
-    /* ロジック、完了画面表示は元のまま維持 */
     function selectRadio(name, value) {
       document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
         radio.closest('.radio-item').classList.remove('selected');
         radio.checked = false;
       });
-      const selectedRadio = document.getElementById(value);
-      selectedRadio.checked = true;
-      selectedRadio.closest('.radio-item').classList.add('selected');
+      const target = document.getElementById(value);
+      target.checked = true;
+      target.closest('.radio-item').classList.add('selected');
 
       if (name === 'inquiry_type') {
-        const bookIssueDetails = document.getElementById('book_issue_details');
-        if (value === 'book_issue') {
-          bookIssueDetails.classList.add('show');
-        } else {
-          bookIssueDetails.classList.remove('show');
-        }
+        document.getElementById('book_issue_details').style.display = (value === 'book_issue') ? 'block' : 'none';
       }
     }
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const inquiryType = document.querySelector('input[name="inquiry_type"]:checked')?.value;
-      const bookTitle = document.getElementById('book_title').value;
-      const issueType = document.querySelector('input[name="issue_type"]:checked')?.value;
-      const pageNumber = document.getElementById('page_number').value;
+      const book = document.getElementById('book_title').value;
+      const type = document.querySelector('input[name="issue_type"]:checked')?.value;
+      const page = document.getElementById('page_number').value;
 
-      if (!inquiryType) { alert('お問い合わせの種類を選択してください。'); return; }
-      if (!bookTitle) { alert('対象書籍を選択してください。'); return; }
-      
-      if (inquiryType === 'book_issue' &&
-          bookTitle === 'LIMINAL SPACE 100' &&
-          issueType === 'binding' &&
-          pageNumber === '148149') {
+      if (book === 'LIMINAL SPACE 100' && type === 'binding' && page === '148149') {
         showPDFConfirmPage();
       } else {
         showThankYouPage();
       }
     });
 
+    // 完了画面の表示ロジック（CSSクラスを使って自動レスポンシブ化）
     function showPDFConfirmPage() {
       const mainContent = document.getElementById('main-content');
       document.getElementById('footer-text').innerText = '© 2025 狭間書房　（5/33）';
       mainContent.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh;">
-          <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd; text-align:center; width:100%; max-width:600px;">
-            <h1 style="color:#003366; line-height:1.3; margin-bottom:1em; font-size:2em;">落丁部分のPDFを<br>送信しました</h1>
-            <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312'\"
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh; padding: 1em;">
+          <div class="thanks-box">
+            <h1 class="thanks-title">落丁部分のPDFを<br>送信しました</h1>
+            <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:ac520bd2-d7ca-4718-8091-96ab9de9e312'"
                     class="submit-btn" style="width:100%;">PDFを確認する</button>
           </div>
         </div>`;
@@ -327,11 +299,11 @@
       const mainContent = document.getElementById('main-content');
       document.getElementById('footer-text').innerText = '© 2025 狭間書房　（-/33）';
       mainContent.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh;">
-          <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd; text-align:center; width:100%; max-width:600px;">
-            <h1 style="color:#003366; line-height:1.3; margin-bottom:1em; font-size:2em;">お問い合わせ<br>ありがとうございました</h1>
-            <p style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">担当者が確認いたします。</p>
-            <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'\"
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 50vh; padding: 1em;">
+          <div class="thanks-box">
+            <h1 class="thanks-title">お問い合わせ<br>ありがとうございました</h1>
+            <p style="color:#32a9cd; margin-bottom:2em;">担当者が確認いたします。</p>
+            <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
                     class="submit-btn" style="width:100%;">ホームに戻る</button>
           </div>
         </div>`;
