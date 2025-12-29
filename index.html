@@ -90,7 +90,7 @@ body {
     .search button:hover {
       background-color: #001f33;
     }
-/* ナビゲーション */
+    /* ナビゲーション */
     nav {
       text-align: center;
       padding: 1em 0;
@@ -110,7 +110,11 @@ body {
       color: #32a9cd;
       border-bottom: 2px solid #32a9cd;
     }
-/* コンテンツ */
+    nav a.active {
+      color: #32a9cd;
+      border-bottom: 2px solid #32a9cd;
+    }
+    /* コンテンツ */
     .content {
   max-width: 1000px;
   margin: 2em auto;
@@ -319,7 +323,7 @@ body {
     }
   </style>
 </head>
-<body>
+  <body style="display: flex; flex-direction: column; height: 100vh;">
   <header>
     <div class="title-wrapper">
   <a href="https://hazamashobo.github.io/main/index.html">
@@ -362,12 +366,12 @@ body {
             <option value="ひのまる構図">ひのまる構図</option>
             <option value="黒子を星座に">黒子を星座に</option>
             <option value="RPGさんぽ概説">RPGさんぽ概説</option>
-            <option value="日本の鏡スポット">日本の鏡スポット</option>
+            <option value="日本の顔スポット">日本の顔スポット</option>
             <option value="千年幸福論">千年幸福論</option>
             <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
             <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
             <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
-            <option value="遅刻しないために">遅刻しないために</option>
+            <option value="配刻しないために">配刻しないために</option>
           </select>
         </div>
 
@@ -504,6 +508,12 @@ body {
             </form>
           </div>
         </header>
+        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; flex-shrink: 0;">
+          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">ホーム</a>
+          <a href="https://hazamashobo.github.io/company/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">狭間書房について</a>
+          <a href="https://hazamashobo.github.io/books/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">刊行物</a>
+          <a href="https://hazamashobo.github.io/contact/index.html" style="color: #32a9cd; margin: 0 1em; text-decoration: none; font-weight: bold; border-bottom: 2px solid #32a9cd;">お問い合わせ</a>
+        </nav>
         <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
           <div style="max-width:600px; width:100%; text-align:center;">
             <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
@@ -544,6 +554,12 @@ body {
             </form>
           </div>
         </header>
+        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; flex-shrink: 0;">
+          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">ホーム</a>
+          <a href="https://hazamashobo.github.io/company/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">狭間書房について</a>
+          <a href="https://hazamashobo.github.io/books/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">刊行物</a>
+          <a href="https://hazamashobo.github.io/contact/index.html" style="color: #32a9cd; margin: 0 1em; text-decoration: none; font-weight: bold; border-bottom: 2px solid #32a9cd;">お問い合わせ</a>
+        </nav>
         <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
           <div style="max-width:600px; width:100%; text-align:center;">
             <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
@@ -559,7 +575,7 @@ body {
           </div>
         </div>
         <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0;">
-          <p>© 2025 狭間書房　（-/33）</p>
+          <p>© 2025 狭間書房　（6/33）</p>
         </footer>
       `;
     }
