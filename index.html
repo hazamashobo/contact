@@ -9,6 +9,8 @@
   height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -327,14 +329,25 @@ body {
         padding: 1em;
         justify-content: center;
         text-align: center;
+        flex-wrap: wrap;
+        gap: 1em;
       }
 
       header h1 {
         font-size: 2em;
       }
 
+      .title-wrapper {
+        width: 100%;
+      }
+
       .search {
         width: 100%;
+      }
+
+      .search form {
+        width: 100%;
+        display: flex;
       }
 
       .search input {
