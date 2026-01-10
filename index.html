@@ -11,6 +11,8 @@
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -18,8 +20,6 @@ body {
   color: #32a9cd;
   font-family: "ヒラギノ角ゴシック", sans-serif;
   line-height: 1.8;
-  display: flex;
-  flex-direction: column;
 }
 
 /* ヘッダー */
@@ -415,6 +415,7 @@ body {
       header {
         flex-direction: column;
         gap: 0.5em;
+        padding: 0.8em;
       }
 
       header h1 {
@@ -427,16 +428,26 @@ body {
 
       .search {
         width: 100%;
+        margin-left: 0;
+      }
+
+      .search form {
+        width: 100%;
       }
 
       .search input {
         width: 100%;
         padding: 0.5em;
+        font-size: 16px;
       }
 
       .search button {
         padding: 0.5em 0.8em;
         font-size: 0.9em;
+      }
+
+      nav {
+        padding: 0.8em 0;
       }
 
       nav a {
@@ -447,14 +458,28 @@ body {
       .content {
         padding: 0 0.8em;
         margin: 0.8em auto;
+        flex: 1;
+      }
+
+      .page-title {
+        margin: 1em 0;
+        padding: 1.5em 1em;
+        border-radius: 6px;
       }
 
       .page-title h1 {
         font-size: 1.5em;
+        line-height: 1.3;
+      }
+
+      .page-title p {
+        font-size: 1em;
+        margin-top: 0.8em;
       }
 
       .form-container {
         padding: 1em;
+        border-radius: 8px;
       }
 
       .form-group label {
@@ -476,6 +501,15 @@ body {
         padding: 0.8em 1.5em;
         font-size: 0.95em;
         max-width: 100%;
+      }
+
+      footer {
+        padding: 0.8em 0.5em;
+        font-size: 0.9em;
+      }
+
+      footer p {
+        margin: 0;
       }
     }
   </style>
@@ -581,7 +615,7 @@ body {
           </div>
 
           <div class="form-group">
-            <label for="page_number">ページ番号<span class="required">*必須</span><br>例）p.2-3が落丁していたら「002003」と入力してください。</label>
+            <label for="page_number">ページ番号<span class="required">*必須</span><br>例）p.2-3が落丁していたら、「002003」と入力してください。</label>
             <input type="number" name="page_number" id="page_number" placeholder="半角数字6桁" min="1">
           </div>
         </div>
@@ -652,15 +686,15 @@ body {
 
     function showPDFConfirmPage() {
       document.body.innerHTML = `
-        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em;">
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em; width: 100%; box-sizing: border-box;">
           <div style="display: flex; flex-direction: column;">
             <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
             <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
           </div>
           <div style="display: flex; align-items: center;">
-            <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center;">
+            <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center; gap: 0.5em;">
               <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; background-color: #fff; color: #003366;">
-              <button type="submit" style="padding: 4px 6px; margin-left: 4px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer;">検索</button>
+              <button type="submit" style="padding: 4px 6px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer; white-space: nowrap;">検索</button>
             </form>
           </div>
         </header>
@@ -670,71 +704,34 @@ body {
           <a href="https://hazamashobo.github.io/books/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">刊行物</a>
           <a href="https://hazamashobo.github.io/contact/index.html" style="color: #32a9cd; margin: 0 1em; text-decoration: none; font-weight: bold; border-bottom: 2px solid #32a9cd;">お問い合わせ</a>
         </nav>
-        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em 1em;">
           <div style="max-width:600px; width:100%; text-align:center;">
-            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
-              <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">落丁部分のPDFを<br>送信しました</h1>
-              <p style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">下記のボタンからご確認いただけます。</p>
+            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:2em 1.5em; border-radius:12px; border:2px solid #32a9cd;">
+              <h1 style="color:#003366; font-size:clamp(1.8em, 5vw, 2.5em); margin-bottom:1em; line-height: 1.3;">落丁部分のPDFを<br>送信しました</h1>
+              <p style="color:#32a9cd; font-size:clamp(1em, 4vw, 1.2em); margin-bottom:2em;">下記のボタンからご確認いただけます。</p>
               <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:1e604728-298e-4c7d-aaf9-66f5996ba6f7'"
-                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
-                             color:white; border:none; padding:1em 3em;
-                             font-size:1.2em; border-radius:25px; cursor:pointer; margin-bottom:1em; width:100%;">
+                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 2em; font-size:clamp(1em, 3vw, 1.2em); border-radius:25px; cursor:pointer; margin-bottom:1em; width:100%; box-sizing: border-box; transition: all 0.3s ease;">
                 PDFを確認する
               </button>
               <br>
               <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
-                      style="background:transparent; color:#32a9cd; border:2px solid #32a9cd;
-                             padding:0.8em 2.5em; font-size:1em; border-radius:25px; cursor:pointer; width:100%;">
+                      style="background:transparent; color:#32a9cd; border:2px solid #32a9cd; padding:0.8em 2em; font-size:clamp(0.9em, 3vw, 1em); border-radius:25px; cursor:pointer; width:100%; box-sizing: border-box; transition: all 0.3s ease;">
                 ホームに戻る
               </button>
             </div>
           </div>
         </div>
-        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0;">
-          <p>© 2025 狭間書房　（5/33）</p>
+        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto; width: 100%; box-sizing: border-box;">
+          <p style="margin: 0;">© 2025 狭間書房　（5/33）</p>
         </footer>
       `;
+      document.body.style.display = 'flex';
+      document.body.style.flexDirection = 'column';
+      document.body.style.height = '100vh';
     }
 
     function showThankYouPage() {
       document.body.innerHTML = `
-        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em;">
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em; width: 100%; box-sizing: border-box;">
           <div style="display: flex; flex-direction: column;">
-            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
-            <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
-          </div>
-          <div style="display: flex; align-items: center;">
-            <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center;">
-              <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; background-color: #fff; color: #003366;">
-              <button type="submit" style="padding: 4px 6px; margin-left: 4px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer;">検索</button>
-            </form>
-          </div>
-        </header>
-        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; flex-shrink: 0; overflow-x: auto; box-sizing: border-box; width: 100%;">
-          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">ホーム</a>
-          <a href="https://hazamashobo.github.io/company/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">狭間書房について</a>
-          <a href="https://hazamashobo.github.io/books/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">刊行物</a>
-          <a href="https://hazamashobo.github.io/contact/index.html" style="color: #32a9cd; margin: 0 1em; text-decoration: none; font-weight: bold; border-bottom: 2px solid #32a9cd;">お問い合わせ</a>
-        </nav>
-        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em;">
-          <div style="max-width:600px; width:100%; text-align:center;">
-            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:3em; border-radius:12px; border:2px solid #32a9cd;">
-              <h1 style="color:#003366; font-size:2.5em; margin-bottom:1em;">お問い合わせ<br>ありがとうございました</h1>
-              <p style="color:#32a9cd; font-size:1.2em; margin-bottom:2em;">担当者が確認いたします。</p>
-              <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
-                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
-                             color:white; border:none; padding:1em 3em;
-                             font-size:1.2em; border-radius:25px; cursor:pointer; width:100%;">
-                ホームに戻る
-              </button>
-            </div>
-          </div>
-        </div>
-        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0;">
-          <p>© 2025 狭間書房　（-/33）</p>
-        </footer>
-      `;
-    }
-  </script>
-</body>
-</html>
+            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height:
