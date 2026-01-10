@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 狭間書房</title>
  <style>
-    html, body {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -22,509 +22,337 @@ body {
   line-height: 1.8;
 }
 
-/* ヘッダー */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1em 2em;
-      background-color: #32a9cd;
-      color: #fff;
-      flex-shrink: 0;
-      gap: 2em;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    .title-wrapper {
-      display: flex;
-      flex-direction: column;
-    }
-   .title-wrapper a {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: #32a9cd;
+  color: #fff;
+  flex-shrink: 0;
+  gap: 2em;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-wrapper a {
   text-decoration: none;
   color: #fff;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
-.title-wrapper a:hover h1 {
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  border: none;
+  font-family: 'Tsunagi Gothic Black', sans-serif;
+  font-weight: 700;
 }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      border: none;
-      font-family: 'Tsunagi Gothic Black', sans-serif;
-      font-weight: 700;
-    }
-    .subtitle {
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-      font-size: 1em;
-      text-align: center;
-      color: #fff;
-    }
-    /* 検索 */
-    .search {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      flex-shrink: 0;
-      margin-left: auto;
-    }
-    .search form {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-    }
-    .search input {
-      padding: 4px;
-      border: 2px solid #003366;
-      border-radius: 4px;
-      width: 150px;
-      background-color: #fff;
-      color: #003366;
-    }
-    .search input::placeholder {
-      color: #003366aa;
-    }
-    .search button {
-      padding: 4px 6px;
-      border-radius: 4px;
-      border: none;
-      background-color: #003366;
-      color: #fff;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .search button:hover {
-      background-color: #001f33;
-    }
-/* ナビゲーション */
-    nav {
-      text-align: center;
-      padding: 1em 0;
-      background-color: #f0f0f0;
-      flex-shrink: 0;
-      overflow-x: auto;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    nav a {
-      color: #003366;
-      margin: 0 1em;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      white-space: nowrap;
-    }
-    nav a:hover {
-      color: #32a9cd;
-    }
-    nav a.active {
-      color: #32a9cd;
-      border-bottom: 2px solid #32a9cd;
-    }
-/* コンテンツ */
-    .content {
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.search form {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.search input {
+  padding: 4px;
+  border: 2px solid #003366;
+  border-radius: 4px;
+  width: 150px;
+  background-color: #fff;
+  color: #003366;
+}
+
+.search button {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: none;
+  background-color: #003366;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+nav {
+  text-align: center;
+  padding: 1em 0;
+  background-color: #f0f0f0;
+  flex-shrink: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+nav a {
+  color: #003366;
+  margin: 0 1em;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+nav a.active {
+  color: #32a9cd;
+  border-bottom: 2px solid #32a9cd;
+}
+
+.content {
   max-width: 1000px;
   margin: 2em auto;
   padding: 0 1em;
   flex: 1;
   width: 100%;
   box-sizing: border-box;
-    }
+}
 
-    /* ページタイトル */
-    .page-title {
-      text-align: center;
-      margin: 2em 0;
-      padding: 1em;
-      background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
-      border-radius: 8px;
-      border: 2px solid #32a9cd;
-    }
-    .page-title h1 {
-      color: #003366;
-      font-size: 2.5em;
-      margin: 0;
-      letter-spacing: 0.1em;
-    }
-    .page-title p {
-      color: #32a9cd;
-      font-size: 1.2em;
-      margin: 0.5em 0 0 0;
-    }
+.page-title {
+  text-align: center;
+  margin: 2em 0;
+  padding: 1em;
+  background: linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%);
+  border-radius: 8px;
+  border: 2px solid #32a9cd;
+}
 
-    /* フォーム */
-    .form-container {
-      background-color: #fafafa;
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
+.page-title h1 {
+  color: #003366;
+  font-size: 2.5em;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
 
-    .form-group {
-      margin-bottom: 2em;
-    }
+.form-container {
+  background-color: #fafafa;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
 
-    .form-group label {
-      display: block;
-      color: #003366;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-      font-size: 1.1em;
-    }
+.form-group {
+  margin-bottom: 2em;
+}
 
-    .required {
-      color: #e74c3c;
-      font-size: 0.9em;
-      margin-left: 0.5em;
-    }
+.form-group label {
+  display: block;
+  color: #003366;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
 
-    /* ラジオボタンとチェックボックス */
-    .radio-group,
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8em;
-      margin-top: 1em;
-    }
+.required {
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
 
-    .radio-item,
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      padding: 0.8em;
-      background-color: #fff;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  margin-top: 1em;
+}
 
-    .radio-item:hover,
-    .checkbox-item:hover {
-      border-color: #32a9cd;
-      background-color: #f8fbfc;
-    }
+.radio-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8em;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    .radio-item input[type="radio"],
-    .checkbox-item input[type="checkbox"] {
-      margin-right: 1em;
-      transform: scale(1.2);
-      flex-shrink: 0;
-    }
+.radio-item:hover {
+  border-color: #32a9cd;
+  background-color: #f8fbfc;
+}
 
-    .radio-item.selected,
-    .checkbox-item.selected {
-      border-color: #32a9cd;
-      background-color: #f0f8ff;
-    }
+.radio-item input[type="radio"] {
+  margin-right: 1em;
+  transform: scale(1.2);
+  flex-shrink: 0;
+}
 
-    /* セレクトボックス */
-    select {
-      width: 100%;
-      padding: 1em;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #003366;
-      font-size: 1em;
-      font-family: inherit;
-      cursor: pointer;
-    }
+.radio-item.selected {
+  border-color: #32a9cd;
+  background-color: #f0f8ff;
+}
 
-    select:focus {
-      border-color: #32a9cd;
-      outline: none;
-    }
+select {
+  width: 100%;
+  padding: 1em;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #003366;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+}
 
-    /* テキスト入力 */
-    .form-container input[type="text"],
-    .form-container input[type="number"],
-    .form-container textarea {
-      width: 100%;
-      padding: 1em;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #003366;
-      font-size: 1em;
-      font-family: inherit;
-      box-sizing: border-box;
-    }
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container textarea {
+  width: 100%;
+  padding: 1em;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #003366;
+  font-size: 1em;
+  font-family: inherit;
+  box-sizing: border-box;
+}
 
-    .form-container input[type="text"]:focus,
-    .form-container input[type="number"]:focus,
-    .form-container textarea:focus {
-      border-color: #32a9cd;
-      outline: none;
-    }
+textarea {
+  height: 120px;
+  resize: vertical;
+}
 
-    textarea {
-      height: 120px;
-      resize: vertical;
-    }
+.conditional-section {
+  display: none;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #f0f8ff;
+  border: 2px solid #32a9cd;
+  border-radius: 8px;
+}
 
-    /* 条件表示エリア */
-    .conditional-section {
-      display: none;
-      margin-top: 1em;
-      padding: 1em;
-      background-color: #f0f8ff;
-      border: 2px solid #32a9cd;
-      border-radius: 8px;
-    }
+.conditional-section.show {
+  display: block;
+}
 
-    .conditional-section.show {
-      display: block;
-    }
+.submit-container {
+  text-align: center;
+  margin-top: 3em;
+}
 
-    /* 送信ボタン */
-    .submit-container {
-      text-align: center;
-      margin-top: 3em;
-    }
+.submit-btn {
+  background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
+  color: white;
+  border: none;
+  padding: 1em 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(50, 169, 205, 0.3);
+  width: 100%;
+  max-width: 300px;
+}
 
-    .submit-btn {
-      background: linear-gradient(135deg, #32a9cd 0%, #267fa1 100%);
-      color: white;
-      border: none;
-      padding: 1em 3em;
-      font-size: 1.2em;
-      font-weight: bold;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(50, 169, 205, 0.3);
-      width: 100%;
-      max-width: 300px;
-    }
+footer {
+  background-color: #32a9cd;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em;
+  flex-shrink: 0;
+  margin-top: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
 
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(50, 169, 205, 0.4);
-    }
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0.8em;
+  }
 
-    .submit-btn:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
+  header h1 {
+    font-size: 1.5em;
+  }
 
-    /* フッター */
-    footer {
-      background-color: #32a9cd;
-      color: #ffffff;
-      text-align: center;
-      padding: 1em;
-      flex-shrink: 0;
-      margin-top: auto;
-      box-sizing: border-box;
-      width: 100%;
-    }
+  .search {
+    width: 100%;
+    margin-left: 0;
+  }
 
-    /* レスポンシブ */
-    @media (max-width: 768px) {
-      header {
-        padding: 1em;
-        justify-content: center;
-        text-align: center;
-        flex-wrap: wrap;
-        gap: 1em;
-      }
+  .search form {
+    width: 100%;
+  }
 
-      header h1 {
-        font-size: 2em;
-      }
+  .search input {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 16px;
+  }
 
-      .title-wrapper {
-        width: 100%;
-      }
+  nav a {
+    margin: 0 0.3em;
+    font-size: 0.8em;
+  }
 
-      .search {
-        width: 100%;
-      }
+  .content {
+    padding: 0 0.8em;
+    margin: 0.8em auto;
+    flex: 1;
+  }
 
-      .search form {
-        width: 100%;
-        display: flex;
-      }
+  .page-title h1 {
+    font-size: 1.5em;
+  }
 
-      .search input {
-        width: 100%;
-        flex: 1;
-      }
+  .form-container {
+    padding: 1em;
+  }
 
-      nav a {
-        margin: 0 0.5em;
-        font-size: 0.9em;
-      }
+  footer {
+    padding: 0.8em 0.5em;
+    font-size: 0.9em;
+  }
 
-      .content {
-        padding: 0 1em;
-        margin: 1em auto;
-      }
-
-      .page-title {
-        margin: 1em 0;
-        padding: 1em;
-      }
-
-      .page-title h1 {
-        font-size: 1.8em;
-      }
-
-      .page-title p {
-        font-size: 1em;
-      }
-
-      .form-container {
-        padding: 1.5em;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-
-      .form-group label {
-        font-size: 1em;
-      }
-
-      .radio-item,
-      .checkbox-item {
-        padding: 0.6em;
-      }
-
-      .radio-item input[type="radio"],
-      .checkbox-item input[type="checkbox"] {
-        margin-right: 0.8em;
-      }
-
-      .submit-btn {
-        padding: 0.8em 2em;
-        font-size: 1em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        gap: 0.5em;
-        padding: 0.8em;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      .subtitle {
-        font-size: 0.9em;
-      }
-
-      .search {
-        width: 100%;
-        margin-left: 0;
-      }
-
-      .search form {
-        width: 100%;
-      }
-
-      .search input {
-        width: 100%;
-        padding: 0.5em;
-        font-size: 16px;
-      }
-
-      .search button {
-        padding: 0.5em 0.8em;
-        font-size: 0.9em;
-      }
-
-      nav {
-        padding: 0.8em 0;
-      }
-
-      nav a {
-        margin: 0 0.3em;
-        font-size: 0.8em;
-      }
-
-      .content {
-        padding: 0 0.8em;
-        margin: 0.8em auto;
-        flex: 1;
-      }
-
-      .page-title {
-        margin: 1em 0;
-        padding: 1.5em 1em;
-        border-radius: 6px;
-      }
-
-      .page-title h1 {
-        font-size: 1.5em;
-        line-height: 1.3;
-      }
-
-      .page-title p {
-        font-size: 1em;
-        margin-top: 0.8em;
-      }
-
-      .form-container {
-        padding: 1em;
-        border-radius: 8px;
-      }
-
-      .form-group label {
-        font-size: 0.95em;
-      }
-
-      .form-container input[type="text"],
-      .form-container input[type="number"],
-      .form-container textarea {
-        padding: 0.8em;
-        font-size: 16px;
-      }
-
-      textarea {
-        height: 100px;
-      }
-
-      .submit-btn {
-        padding: 0.8em 1.5em;
-        font-size: 0.95em;
-        max-width: 100%;
-      }
-
-      footer {
-        padding: 0.8em 0.5em;
-        font-size: 0.9em;
-      }
-
-      footer p {
-        margin: 0;
-      }
-    }
+  footer p {
+    margin: 0;
+  }
+}
   </style>
 </head>
 <body>
   <header>
     <div class="title-wrapper">
-  <a href="https://hazamashobo.github.io/main/index.html">
-    <h1>狭間書房</h1>
-    <p class="subtitle">Hazama Publishing</p>
-  </a>
-</div>
-   <div class="search">
+      <a href="https://hazamashobo.github.io/main/index.html">
+        <h1>狭間書房</h1>
+        <p class="subtitle">Hazama Publishing</p>
+      </a>
+    </div>
+    <div class="search">
       <form action="https://hazamashobo.github.io/result/" method="get">
-        <input type="text" id="searchInput" name="q" placeholder="キーワード入力">
+        <input type="text" name="q" placeholder="キーワード入力">
         <button type="submit">検索</button>
       </form>
     </div>
@@ -542,32 +370,30 @@ body {
       <h1>お問い合わせ</h1>
     </div>
 
-    <!-- 書籍選択 -->
-        <div class="form-group" id="book_selection">
-          <label for="book_title">対象書籍<span class="required">*必須</span></label>
-          <select name="book_title" id="book_title">
-            <option value="">書籍を選択してください</option>
-            <option value="美術の穴">美術の穴</option>
-            <option value="RPGさんぽ入門">RPGさんぽ入門</option>
-            <option value="コンクール＆コンテスト">コンクール＆コンテスト</option>
-            <option value="鳥の目 虫の目 魚の目">鳥の目 虫の目 魚の目</option>
-            <option value="光輪-Nimbus-">光輪-Nimbus-</option>
-            <option value="What is Brown noise?">What is Brown noise?</option>
-            <option value="ひのまる構図">ひのまる構図</option>
-            <option value="黒子を星座に">黒子を星座に</option>
-            <option value="RPGさんぽ概説">RPGさんぽ概説</option>
-            <option value="日本の顔スポット">日本の顔スポット</option>
-            <option value="千年幸福論">千年幸福論</option>
-            <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
-            <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
-            <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
-            <option value="配送遅刻しないために">配送遅刻しないために</option>
-          </select>
-        </div>
+    <div class="form-group" id="book_selection">
+      <label for="book_title">対象書籍<span class="required">*必須</span></label>
+      <select name="book_title" id="book_title">
+        <option value="">書籍を選択してください</option>
+        <option value="美術の穴">美術の穴</option>
+        <option value="RPGさんぽ入門">RPGさんぽ入門</option>
+        <option value="コンクール＆コンテスト">コンクール＆コンテスト</option>
+        <option value="鳥の目 虫の目 魚の目">鳥の目 虫の目 魚の目</option>
+        <option value="光輪-Nimbus-">光輪-Nimbus-</option>
+        <option value="What is Brown noise?">What is Brown noise?</option>
+        <option value="ひのまる構図">ひのまる構図</option>
+        <option value="黒子を星座に">黒子を星座に</option>
+        <option value="RPGさんぽ概説">RPGさんぽ概説</option>
+        <option value="日本の顔スポット">日本の顔スポット</option>
+        <option value="千年幸福論">千年幸福論</option>
+        <option value="カレーのご飯は冷たい方が美味しい">カレーのご飯は冷たい方が美味しい</option>
+        <option value="LIMINAL SPACE 100">LIMINAL SPACE 100</option>
+        <option value="花火禁止区域ができるまで">花火禁止区域ができるまで</option>
+        <option value="配送遅刻しないために">配送遅刻しないために</option>
+      </select>
+    </div>
 
     <div class="form-container">
       <form id="contactForm">
-        <!-- お問い合わせ種類 -->
         <div class="form-group">
           <label>お問い合わせの種類<span class="required">*必須</span></label>
           <div class="radio-group">
@@ -586,7 +412,6 @@ body {
           </div>
         </div>
 
-        <!-- 書籍不備の場合の詳細 -->
         <div class="conditional-section" id="book_issue_details">
           <div class="form-group">
             <label>不具合の種類<span class="required">*必須</span></label>
@@ -620,13 +445,11 @@ body {
           </div>
         </div>
 
-        <!-- 詳細内容 -->
         <div class="form-group">
           <label for="details">内容詳細</label>
           <textarea name="details" id="details" placeholder="お問い合わせの詳細をご記入ください"></textarea>
         </div>
 
-        <!-- 送信ボタン -->
         <div class="submit-container">
           <button type="submit" class="submit-btn">送信する</button>
         </div>
@@ -674,10 +497,7 @@ body {
       if (!bookTitle) { alert('対象書籍を選択してください。'); return; }
       if (inquiryType === 'book_issue' && !issueType) { alert('不具合の種類を選択してください。'); return; }
 
-      if (inquiryType === 'book_issue' &&
-          bookTitle === 'LIMINAL SPACE 100' &&
-          issueType === 'binding' &&
-          pageNumber === '148149') {
+      if (inquiryType === 'book_issue' && bookTitle === 'LIMINAL SPACE 100' && issueType === 'binding' && pageNumber === '148149') {
         showPDFConfirmPage();
       } else {
         showThankYouPage();
@@ -687,43 +507,22 @@ body {
     function showPDFConfirmPage() {
       document.body.innerHTML = `
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em; width: 100%; box-sizing: border-box;">
-          <div style="display: flex; flex-direction: column;">
-            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
-            <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
-          </div>
-          <div style="display: flex; align-items: center;">
-            <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center; gap: 0.5em;">
-              <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius: 4px; width: 150px; background-color: #fff; color: #003366;">
-              <button type="submit" style="padding: 4px 6px; border-radius: 4px; border: none; background-color: #003366; color: #fff; cursor: pointer; white-space: nowrap;">検索</button>
-            </form>
-          </div>
+          <div><h1 style="margin: 0; font-size: 3em; color: #fff;">狭間書房</h1><p style="margin: 0; color: #fff;">Hazama Publishing</p></div>
         </header>
-        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; flex-shrink: 0; overflow-x: auto; box-sizing: border-box; width: 100%;">
-          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">ホーム</a>
-          <a href="https://hazamashobo.github.io/company/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">狭間書房について</a>
-          <a href="https://hazamashobo.github.io/books/index.html" style="color: #003366; margin: 0 1em; text-decoration: none; font-weight: bold;">刊行物</a>
-          <a href="https://hazamashobo.github.io/contact/index.html" style="color: #32a9cd; margin: 0 1em; text-decoration: none; font-weight: bold; border-bottom: 2px solid #32a9cd;">お問い合わせ</a>
+        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; width: 100%; box-sizing: border-box;">
+          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none;">ホーム</a>
         </nav>
         <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em 1em;">
           <div style="max-width:600px; width:100%; text-align:center;">
             <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:2em 1.5em; border-radius:12px; border:2px solid #32a9cd;">
-              <h1 style="color:#003366; font-size:clamp(1.8em, 5vw, 2.5em); margin-bottom:1em; line-height: 1.3;">落丁部分のPDFを<br>送信しました</h1>
-              <p style="color:#32a9cd; font-size:clamp(1em, 4vw, 1.2em); margin-bottom:2em;">下記のボタンからご確認いただけます。</p>
-              <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:1e604728-298e-4c7d-aaf9-66f5996ba6f7'"
-                      style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 2em; font-size:clamp(1em, 3vw, 1.2em); border-radius:25px; cursor:pointer; margin-bottom:1em; width:100%; box-sizing: border-box; transition: all 0.3s ease;">
-                PDFを確認する
-              </button>
-              <br>
-              <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'"
-                      style="background:transparent; color:#32a9cd; border:2px solid #32a9cd; padding:0.8em 2em; font-size:clamp(0.9em, 3vw, 1em); border-radius:25px; cursor:pointer; width:100%; box-sizing: border-box; transition: all 0.3s ease;">
-                ホームに戻る
-              </button>
+              <h1 style="color:#003366; font-size:2em; margin-bottom:1em;">落丁部分のPDFを送信しました</h1>
+              <p style="color:#32a9cd; font-size:1.1em; margin-bottom:2em;">下記のボタンからご確認いただけます。</p>
+              <button onclick="window.location.href='https://acrobat.adobe.com/id/urn:aaid:sc:AP:1e604728-298e-4c7d-aaf9-66f5996ba6f7'" style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 2em; font-size:1em; border-radius:25px; cursor:pointer; margin-bottom:1em; width:100%; box-sizing: border-box;">PDFを確認する</button>
+              <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'" style="background:transparent; color:#32a9cd; border:2px solid #32a9cd; padding:0.8em 2em; font-size:1em; border-radius:25px; cursor:pointer; width:100%; box-sizing: border-box;">ホームに戻る</button>
             </div>
           </div>
         </div>
-        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto; width: 100%; box-sizing: border-box;">
-          <p style="margin: 0;">© 2025 狭間書房　（5/33）</p>
-        </footer>
+        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto; width: 100%; box-sizing: border-box;"><p style="margin: 0;">© 2025 狭間書房</p></footer>
       `;
       document.body.style.display = 'flex';
       document.body.style.flexDirection = 'column';
@@ -733,10 +532,26 @@ body {
     function showThankYouPage() {
       document.body.innerHTML = `
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; background-color: #32a9cd; color: #fff; flex-shrink: 0; flex-wrap: wrap; gap: 1em; width: 100%; box-sizing: border-box;">
-          <div style="display: flex; flex-direction: column;">
-            <h1 style="margin: 0; font-size: 3em; letter-spacing: 0.1em; line-height: 1; border: none; font-family: 'Tsunagi Gothic Black', sans-serif; font-weight: 700; color: #fff;">狭間書房</h1>
-            <p style="margin: 0; padding: 0; line-height: 1; font-size: 1em; text-align: center; color: #fff;">Hazama Publishing</p>
+          <div><h1 style="margin: 0; font-size: 3em; color: #fff;">狭間書房</h1><p style="margin: 0; color: #fff;">Hazama Publishing</p></div>
+        </header>
+        <nav style="text-align: center; padding: 1em 0; background-color: #f0f0f0; width: 100%; box-sizing: border-box;">
+          <a href="https://hazamashobo.github.io/main/index.html" style="color: #003366; margin: 0 1em; text-decoration: none;">ホーム</a>
+        </nav>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2em 1em;">
+          <div style="max-width:600px; width:100%; text-align:center;">
+            <div style="background:linear-gradient(135deg, #f8fbfc 0%, #e8f4f8 100%); padding:2em 1.5em; border-radius:12px; border:2px solid #32a9cd;">
+              <h1 style="color:#003366; font-size:2em; margin-bottom:1em;">お問い合わせありがとうございました</h1>
+              <p style="color:#32a9cd; font-size:1.1em; margin-bottom:2em;">担当者が確認いたします。</p>
+              <button onclick="window.location.href='https://hazamashobo.github.io/main/index.html'" style="background:linear-gradient(135deg, #32a9cd 0%, #267fa1 100%); color:white; border:none; padding:1em 2em; font-size:1em; border-radius:25px; cursor:pointer; width:100%; box-sizing: border-box;">ホームに戻る</button>
+            </div>
           </div>
-          <div style="display: flex; align-items: center;">
-            <form action="https://hazamashobo.github.io/result/" method="get" style="display: flex; align-items: center; gap: 0.5em;">
-              <input type="text" name="q" placeholder="キーワード入力" style="padding: 4px; border: 2px solid #003366; border-radius:
+        </div>
+        <footer style="background-color: #32a9cd; color: #ffffff; text-align: center; padding: 1em; flex-shrink: 0; margin-top: auto; width: 100%; box-sizing: border-box;"><p style="margin: 0;">© 2025 狭間書房</p></footer>
+      `;
+      document.body.style.display = 'flex';
+      document.body.style.flexDirection = 'column';
+      document.body.style.height = '100vh';
+    }
+  </script>
+</body>
+</html>
